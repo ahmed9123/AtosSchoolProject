@@ -51,9 +51,56 @@ public class CRUDqueries {
 				System.out.println("Years_teaching-" + results.getInt("years_teaching"));
 				System.out.println("Salary-" + results.getInt("salary"));
 			}
-		}catch(SQLException e) {
+		}catch(SQLException except) {
 			System.out.println("Query Error");
-			e.printStackTrace();
+			except.printStackTrace();
+		}
+	}
+	
+	public void readAll()
+	{
+		String rdState = "SELECT * FROM staff" + ";";
+		try {
+			results = state.executeQuery(rdState);
+			while(results.next()) {
+				System.out.println("Staff_id-" + results.getInt("staff_id"));
+				System.out.println("Name-"+ results.getString("name"));
+				System.out.println("Position-" + results.getString("position"));
+				System.out.println("Age-" + results.getInt("age"));
+				System.out.println("Years_teaching-" + results.getInt("years_teaching"));
+				System.out.println("Salary-" + results.getInt("salary"));
+			}
+		}catch(SQLException except) {
+			System.out.println("Query Error");
+			except.printStackTrace();
+		}
+	}
+	
+	
+	
+	public void update(int staff_id,String updatePost)
+	{
+		String updState = "UPDATE staff SET position = '" + updatePost + "' WHERE staff_id = " + staff_id + ";";
+		try {
+			state.executeUpdate(updState);
+			System.out.println("Update on staff member successfull");
+			
+		}catch (SQLException except) {
+			System.out.println("Query Error");
+			except.printStackTrace();
+		}
+
+	}
+	
+	public void delete(int staff_id)
+	{
+		String delState = "DELETE FROM staff WHERE staff_id=" + staff_id + ";";
+		try {
+			state.executeUpdate(delState);
+			System.out.println("Staff member deleted from database");
+		} catch (SQLException except) {
+			System.out.println("Query Error");
+			except.printStackTrace();
 		}
 	}
 	
