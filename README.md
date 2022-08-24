@@ -11,3 +11,5 @@ Update - Allows you to update the position of a staff member and you will be ask
 Delete - Allows you to delete a staff member when their id is inputed. WARNING, once they are deleted their id cannot be used again nor can be used by anyone else.
 
 Once you have finished with the following options you will be asked to continue or not, either type y for yes and that will allowing to choice to do another option or type n for no which will close the connection to the database and say goodbye.
+
+For the testing you will be using junit testing, to run this you must first right click on the java/SchoolTest package and choose to run the Junit test. For the coverage you must right click on the java/SchoolTest package and choose coverage as - junit test.
