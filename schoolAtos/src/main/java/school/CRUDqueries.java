@@ -38,12 +38,15 @@ public class CRUDqueries {
 		}
 	}
 	
-	public void read(int staff_id)
+	public School read(int staff_id)
 	{
+		School s = null;
 		String rdState = "SELECT * FROM staff WHERE staff_id=" + staff_id + ";";
 		try {
+			
 			results = state.executeQuery(rdState);
 			while(results.next()) {
+				s = new School( results.getString("name"), results.getString("position"),results.getInt("age"),results.getInt("years_teaching"),results.getInt("salary"));
 				System.out.println("Staff_id-" + results.getInt("staff_id"));
 				System.out.println("Name-"+ results.getString("name"));
 				System.out.println("Position-" + results.getString("position"));
@@ -55,6 +58,7 @@ public class CRUDqueries {
 			System.out.println("Query Error");
 			except.printStackTrace();
 		}
+		return s;
 	}
 	
 	public void readAll()
